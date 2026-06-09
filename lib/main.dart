@@ -366,7 +366,7 @@ class HeroSection extends StatelessWidget {
             'assets/765FC03E-A429-4B36-8C0A-6C95D2C3B148.jpg.PNG',
             fit: BoxFit.cover,
             // Changed from -0.2 to 0.15 to pull your head down and add space at the top
-            alignment: const Alignment(0, -0.5), 
+            alignment: const Alignment(0, -0.7), 
             errorBuilder: (context, error, stackTrace) {
               return const Center(
                 child: Text(
