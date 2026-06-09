@@ -282,7 +282,6 @@ class HeroSection extends StatelessWidget {
           runSpacing: 12,
           alignment: isDesktop ? WrapAlignment.start : WrapAlignment.center,
           children: [
-            // 1. PRIMARY BUTTON: Global Market Gold Standard (Email)
             HoverCard(
               onTap: () => _launchURL('mailto:adeyemifortuneadeboye@gmail.com?subject=Project%20Inquiry'),
               child: _button(
@@ -292,7 +291,6 @@ class HeroSection extends StatelessWidget {
                 textColor: Colors.white,
               ),
             ),
-            // 2. SECONDARY BUTTON: Resume Link Restored!
             HoverCard(
               onTap: () => _launchURL(
                   'https://drive.google.com/uc?export=download&id=12FerkMBUIjDo1hCcNy2pD4hezKuhbJzC'),
@@ -304,7 +302,6 @@ class HeroSection extends StatelessWidget {
                 border: true,
               ),
             ),
-            // 3. SECONDARY BUTTON: Instant Messaging Alternative (WhatsApp)
             HoverCard(
               onTap: () => _launchURL('https://wa.me/2347053802331'),
               child: _button(
@@ -315,7 +312,6 @@ class HeroSection extends StatelessWidget {
                 border: true,
               ),
             ),
-            // 4. SECONDARY BUTTON: Code Portfolio (GitHub)
             HoverCard(
               onTap: () => _launchURL('https://github.com/thefortune-tech'),
               child: _button(
@@ -326,7 +322,6 @@ class HeroSection extends StatelessWidget {
                 border: true,
               ),
             ),
-            // 5. SECONDARY BUTTON: Video Demos (YouTube)
             HoverCard(
               onTap: () => _launchURL('https://youtube.com/@Fortune_Dev'),
               child: _button(
@@ -343,42 +338,47 @@ class HeroSection extends StatelessWidget {
     ];
   }
 
-    Widget _avatar() {
+  // ─── FIXED AVATAR WIDGET (Ensures a perfect circle layout on Web) ───
+  Widget _avatar() {
     return FadeSlideIn(
       delayMs: 200,
-      child: Container(
-        width: 260,
-        height: 260,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: const Color(0xFFF0F0F0),
-          border: Border.all(color: const Color(0xFF378ADD), width: 4),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0xFF378ADD).withValues(alpha: 0.3),
-              blurRadius: 40,
-              spreadRadius: 8,
-            ),
-          ],
-        ),
-        child: ClipOval(
-          child: Image.asset(
-            'assets/765FC03E-A429-4B36-8C0A-6C95D2C3B148.jpg.PNG',
-            fit: BoxFit.cover,
-            // Changed from -0.2 to 0.15 to pull your head down and add space at the top
-            alignment: const Alignment(0, -0.7), 
-            errorBuilder: (context, error, stackTrace) {
-              return const Center(
-                child: Text(
-                  'AF',
-                  style: TextStyle(
-                    color: Color(0xFF0A1628),
-                    fontSize: 64,
-                    fontWeight: FontWeight.bold,
-                  ),
+      child: Center(
+        child: AspectRatio(
+          aspectRatio: 1.0, // Strict 1:1 layout forces perfect alignment
+          child: Container(
+            width: 260,
+            height: 260,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: const Color(0xFFF0F0F0),
+              border: Border.all(color: const Color(0xFF378ADD), width: 4),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFF378ADD).withValues(alpha: 0.3),
+                  blurRadius: 40,
+                  spreadRadius: 8,
                 ),
-              );
-            },
+              ],
+            ),
+            child: ClipOval(
+              child: Image.asset(
+                'assets/765FC03E-A429-4B36-8C0A-6C95D2C3B148.jpg.PNG',
+                fit: BoxFit.cover,
+                alignment: const Alignment(0, 0.15), // Pulled head position into direct framing
+                errorBuilder: (context, error, stackTrace) {
+                  return const Center(
+                    child: Text(
+                      'AF',
+                      style: TextStyle(
+                        color: Color(0xFF0A1628),
+                        fontSize: 64,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
         ),
       ),
@@ -679,7 +679,7 @@ class ProjectsSection extends StatelessWidget {
   }
 }
 
-// ─── CONTACT SECTION ──────────────────────────────────────────────────────────
+// ─── CONTACT SECTION WITH INTEGRATED SOCIAL LINKS ─────────────────────────────
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
 
@@ -709,6 +709,38 @@ class ContactSection extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
+          
+          // ─── RE-ALIGNED PROFESSIONAL SOCIAL LINKS ROW ───
+          const SizedBox(height: 24),
+          FadeSlideIn(
+            delayMs: 150,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.close, size: 22),
+                  color: Colors.white.withValues(alpha: 0.7),
+                  tooltip: 'Follow on X',
+                  onPressed: () => _launchURL('https://x.com/h_white96312'),
+                ),
+                const SizedBox(width: 20),
+                IconButton(
+                  icon: const Icon(Icons.camera_alt_outlined, size: 22),
+                  color: Colors.white.withValues(alpha: 0.7),
+                  tooltip: 'Follow on Instagram',
+                  onPressed: () => _launchURL('https://www.instagram.com/fortune.tech_dev'),
+                ),
+                const SizedBox(width: 20),
+                IconButton(
+                  icon: const Icon(Icons.facebook, size: 22),
+                  color: Colors.white.withValues(alpha: 0.7),
+                  tooltip: 'Connect on Facebook',
+                  onPressed: () => _launchURL('https://www.facebook.com/share/1KfzMjxfeX/'),
+                ),
+              ],
+            ),
+          ),
+          
           const SizedBox(height: 40),
           Wrap(
             spacing: 16,
