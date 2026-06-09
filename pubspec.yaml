@@ -1,0 +1,28 @@
+name: portfolio_web
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  url_launcher: ^6.3.1  
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # This must be indented by exactly 2 spaces and sit directly inside the flutter block
+  assets:
+    # These must have exactly 4 spaces before the hyphen
+    - assets/765FC03E-A429-4B36-8C0A-6C95D2C3B148.jpg.PNG
+    - assets/resume.pdf.docx
