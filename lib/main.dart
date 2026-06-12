@@ -36,8 +36,8 @@ class PortfolioPage extends StatelessWidget {
           child: Column(
             children: [
               HeroSection(),
-              SkillsMarqueeSection(), // Upgraded True Infinite Auto + Manual Engine
-              ProjectsSection(),
+              SkillsMarqueeSection(), 
+              ProjectsSection(), // Upgraded with clear elevated buttons
               ContactSection(),
             ],
           ),
@@ -69,6 +69,50 @@ Future<void> _launchURL(String urlString) async {
 // ─── OFFICIALLY BRANDED VECTOR PAINT STRUCTURES ──────────────────────────────
 class GitHubLogoPainter extends CustomPainter {
   const GitHubLogoPainter();
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill;
+    final path = Path();
+    final w = size.width;
+    final h = size.height;
+    
+    path.moveTo(w * 0.5, 0);
+    path.cubicTo(w * 0.223, 0, 0, h * 0.223, 0, h * 0.5);
+    path.cubicTo(0, h * 0.722, w * 0.147, h * 0.91, w * 0.352, h * 0.978);
+    path.cubicTo(w * 0.377, h * 0.983, w * 0.386, h * 0.967, w * 0.386, h * 0.954);
+    path.cubicTo(w * 0.386, h * 0.942, w * 0.386, h * 0.906, w * 0.386, h * 0.86);
+    path.cubicTo(w * 0.247, h * 0.89, w * 0.218, h * 0.793, w * 0.218, h * 0.793);
+    path.cubicTo(w * 0.195, h * 0.736, w * 0.163, h * 0.721, w * 0.163, h * 0.721);
+    path.cubicTo(w * 0.118, h * 0.69, w * 0.164, h * 0.69, w * 0.164, h * 0.69);
+    path.cubicTo(w * 0.214, h * 0.694, w * 0.24, h * 0.742, w * 0.24, h * 0.742);
+    path.cubicTo(w * 0.284, h * 0.817, w * 0.355, h * 0.795, w * 0.383, h * 0.783);
+    path.cubicTo(w * 0.387, h * 0.751, w * 0.4, h * 0.729, w * 0.414, h * 0.717);
+    path.cubicTo(w * 0.303, h * 0.704, w * 0.186, h * 0.661, w * 0.186, h * 0.47);
+    path.cubicTo(w * 0.186, h * 0.415, w * 0.206, h * 0.371, w * 0.238, h * 0.336);
+    path.cubicTo(w * 0.233, h * 0.323, w * 0.216, h * 0.272, w * 0.243, h * 0.203);
+    path.cubicTo(w * 0.243, h * 0.203, w * 0.285, h * 0.19, w * 0.38, h * 0.254);
+    path.cubicTo(w * 0.42, h * 0.243, w * 0.463, h * 0.238, w * 0.5, h * 0.238);
+    path.cubicTo(w * 0.537, h * 0.238, w * 0.58, h * 0.243, w * 0.62, h * 0.254);
+    path.cubicTo(w * 0.715, h * 0.19, w * 0.757, h * 0.203, w * 0.757, h * 0.203);
+    path.cubicTo(w * 0.784, h * 0.272, w * 0.767, h * 0.323, w * 0.762, h * 0.336);
+    path.cubicTo(w * 0.794, h * 0.371, w * 0.814, h * 0.415, w * 0.814, h * 0.47);
+    path.cubicTo(w * 0.814, h * 0.662, w * 0.697, h * 0.704, w * 0.586, h * 0.716);
+    path.cubicTo(w * 0.604, h * 0.732, w * 0.62, h * 0.763, w * 0.62, h * 0.811);
+    path.cubicTo(w * 0.62, h * 0.88, w * 0.619, h * 0.936, w * 0.619, h * 0.954);
+    path.cubicTo(w * 0.619, h * 0.968, w * 0.628, h * 0.984, w * 0.653, h * 0.978);
+    path.cubicTo(w * 0.853, h * 0.91, w * 1, h * 0.722, w * 1, h * 0.5);
+    path.cubicTo(w * 1, h * 0.223, w * 0.777, 0, w * 0.5, 0);
+    path.close();
+    canvas.drawPath(path, paint);
+  }
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+class GitHubLogoPainterBlue extends CustomPainter {
+  const GitHubLogoPainterBlue();
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
@@ -167,6 +211,34 @@ class YouTubeLogoPainter extends CustomPainter {
     canvas.drawRRect(rrect, paint);
 
     final trianglePaint = Paint()..color = const Color(0xFF0A1628)..style = PaintingStyle.fill;
+    final path = Path();
+    path.moveTo(w * 0.4, h * 0.32);
+    path.lineTo(w * 0.68, h * 0.5);
+    path.lineTo(w * 0.4, h * 0.68);
+    path.close();
+    canvas.drawPath(path, trianglePaint);
+  }
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+class YouTubeLogoPainterWhite extends CustomPainter {
+  const YouTubeLogoPainterWhite();
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill;
+    final w = size.width;
+    final h = size.height;
+
+    final rrect = RRect.fromRectAndRadius(
+      Rect.fromLTWH(0, 0, w, h),
+      Radius.circular(w * 0.25),
+    );
+    canvas.drawRRect(rrect, paint);
+
+    final trianglePaint = Paint()..color = const Color(0xFF0D2137)..style = PaintingStyle.fill;
     final path = Path();
     path.moveTo(w * 0.4, h * 0.32);
     path.lineTo(w * 0.68, h * 0.5);
@@ -286,13 +358,13 @@ class _HoverCardState extends State<HoverCard> {
           curve: Curves.easeOutCubic,
           transform: Matrix4.identity()
             ..translate(0, _isHovered ? -6.0 : 0.0)
-            ..scale(_isHovered ? 1.03 : 1.0),
+            ..scale(_isHovered ? 1.02 : 1.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
                 color: _isHovered 
-                    ? const Color(0xFF378ADD).withValues(alpha: 0.25)
+                    ? const Color(0xFF378ADD).withValues(alpha: 0.2)
                     : Colors.transparent,
                 blurRadius: 20,
                 spreadRadius: 2,
@@ -486,7 +558,7 @@ class HeroSection extends StatelessWidget {
             ),
             HoverCard(
               onTap: () => _launchURL('https://github.com/thefortune-tech'),
-              child: _buttonWithPainter('GitHub', const GitHubLogoPainter(), isMobile),
+              child: _buttonWithPainter('GitHub', const GitHubLogoPainterBlue(), isMobile),
             ),
             HoverCard(
               onTap: () => _launchURL('https://youtube.com/@Fortune_Dev'),
@@ -607,7 +679,7 @@ class _DynamicProfileAvatarState extends State<DynamicProfileAvatar> {
   }
 }
 
-// ─── TRUE NO-ENDINGS TRUE AUTOMATIC CO-EXISTING INFINITE MARQUEE ─────────────
+// ─── TRUE INFINITE AUTOPLAY MARQUEE ENGINE ───────────────────────────────────
 class SkillsMarqueeSection extends StatefulWidget {
   const SkillsMarqueeSection({super.key});
 
@@ -621,14 +693,13 @@ class _SkillsMarqueeSectionState extends State<SkillsMarqueeSection> {
   Timer? _resumeTimer;
   bool _isUserInteracting = false;
   
-  // High-performance constant loop configuration parameters
   final int _virtualCenterIndex = 10000;
   final Duration _scrollSpeedDuration = const Duration(milliseconds: 1400); 
 
   final List<Map<String, dynamic>> skills = [
     {'icon': Icons.phone_android_rounded, 'isEmoji': false, 'title': 'Flutter & Dart'},
     {'icon': '🧠', 'isEmoji': true, 'title': 'Riverpod & BLoC'},
-    {'icon': '🔥', 'isEmoji': true, 'title': 'Firebase infrastructure'},
+    {'icon': '🔥', 'isEmoji': true, 'title': 'Firebase Infra'},
     {'icon': Icons.layers_outlined, 'isEmoji': false, 'title': 'Clean Architecture'},
     {'icon': '🧪', 'isEmoji': true, 'title': 'Automated Testing'},
     {'icon': '⚙️', 'isEmoji': true, 'title': 'GitHub CI/CD Pipelines'},
@@ -641,7 +712,7 @@ class _SkillsMarqueeSectionState extends State<SkillsMarqueeSection> {
     super.initState();
     _pageController = PageController(
       initialPage: _virtualCenterIndex,
-      viewportFraction: 0.28, // Default fractional tracking for wide displays
+      viewportFraction: 0.28,
     );
     WidgetsBinding.instance.addPostFrameCallback((_) => _initiateAutoSlideLoop());
   }
@@ -686,20 +757,21 @@ class _SkillsMarqueeSectionState extends State<SkillsMarqueeSection> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 600;
-    final isTablet = width >= 600 && width < 1000;
+    final isTablet = width >= 600 && width < 1100;
 
-    // Dynamically balance layout sizes so containers stay giant across viewports
     final double trackHeight = isMobile ? 120 : 144;
     final double cardHeight = isMobile ? 110 : 134;
     final double titleFontSize = isMobile ? 14 : 16;
     final double iconSize = isMobile ? 24 : 32;
 
-    // Adjust container screen density fraction dynamically
     if (isMobile) {
-      _pageController = PageController(initialPage: _pageController.initialPage, viewportFraction: 0.65);
+      _pageController = PageController(initialPage: _pageController.initialPage, viewportFraction: 0.62);
     } else if (isTablet) {
-      _pageController = PageController(initialPage: _pageController.initialPage, viewportFraction: 0.42);
-    }
+      _pageController = PageController(initialPage: _pageController.initialPage, viewportFraction: 0.30);
+    }else {
+    // Large Desktop: Shrunk from 0.28 down to 0.18 / 0.20 to pull the containers close together
+    _pageController = PageController(initialPage: _pageController.initialPage, viewportFraction: 0.18);
+  }
 
     return MouseRegion(
       onEnter: (_) => _pauseAutoScroll(),
@@ -799,7 +871,7 @@ class _SkillsMarqueeSectionState extends State<SkillsMarqueeSection> {
   }
 }
 
-// ─── FEATURED PROJECTS MATRIX ────────────────────────────────────────────────
+// ─── FEATURED PROJECTS MATRIX WITH ELEVATED LINK BUTTONS ──────────────────────
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});
 
@@ -808,13 +880,13 @@ class ProjectsSection extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     
     int crossAxisCount = 2;
-    double extentHeight = 210;
+    double extentHeight = 310; // Tall container format to store stacked action buttons comfortably
     if (width < 600) {
       crossAxisCount = 1;
-      extentHeight = 230;
+      extentHeight = 340;
     } else if (width < 900) {
       crossAxisCount = 1;
-      extentHeight = 190;
+      extentHeight = 310;
     }
 
     final projects = [
@@ -860,61 +932,94 @@ class ProjectsSection extends StatelessWidget {
           _sectionTitle('Featured Projects'),
           const SizedBox(height: 36),
           GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: crossAxisCount,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              mainAxisExtent: extentHeight,
-            ),
-            itemCount: projects.length,
-            itemBuilder: (context, index) {
-              final p = projects[index];
-              return FadeSlideIn(
-                delayMs: index * 40,
-                child: HoverCard(
-                  child: Container(
-                    padding: const EdgeInsets.all(22),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF0D2137),
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: const Color(0xFF378ADD).withValues(alpha: 0.1)),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            p['isEmoji'] as bool
-                                ? Text(p['icon'] as String, style: const TextStyle(fontSize: 26))
-                                : Icon(p['icon'] as IconData, color: const Color(0xFF378ADD), size: 28),
-                            const Spacer(),
-                            _InteractiveIconButton(icon: null, painter: const GitHubLogoPainter(), tooltip: 'Source Code', onPressed: () => _launchURL(p['github'] as String)),
-                            const SizedBox(width: 4),
-                            _InteractiveIconButton(icon: null, painter: const YouTubeLogoPainter(), tooltip: 'Video Demo', onPressed: () => _launchURL(p['demo'] as String)),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Text(p['title'] as String, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-                        const SizedBox(height: 2),
-                        Text(p['tech'] as String, style: const TextStyle(color: Color(0xFF378ADD), fontSize: 11, fontWeight: FontWeight.w500)),
-                        const SizedBox(height: 8),
-                        Expanded(
-                          child: Text(
-                            p['desc'] as String,
-                            style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 12.5, height: 1.4),
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
+  shrinkWrap: true,
+  physics: const NeverScrollableScrollPhysics(),
+  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: crossAxisCount,
+    crossAxisSpacing: 16,
+    mainAxisSpacing: 16,
+    mainAxisExtent: 250, // Shorter container now that buttons are side-by-side
+  ),
+  itemCount: projects.length,
+  itemBuilder: (context, index) {
+    final p = projects[index];
+    return FadeSlideIn(
+      delayMs: index * 40,
+      child: HoverCard(
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: const Color(0xFF0D2137),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: const Color(0xFF378ADD).withValues(alpha: 0.1)),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              p['isEmoji'] as bool
+                  ? Text(p['icon'] as String, style: const TextStyle(fontSize: 26))
+                  : Icon(p['icon'] as IconData, color: const Color(0xFF378ADD), size: 28),
+              const SizedBox(height: 10),
+              Text(p['title'] as String, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 2),
+              Text(p['tech'] as String, style: const TextStyle(color: Color(0xFF378ADD), fontSize: 11, fontWeight: FontWeight.w500)),
+              const SizedBox(height: 8),
+              Expanded(
+                child: Text(
+                  p['desc'] as String,
+                  style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 12.5, height: 1.4),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(height: 16),
+              
+              // Clean Even Row: Buttons side-by-side
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: () => _launchURL(p['github'] as String),
+                      icon: SizedBox(
+                        width: 12,
+                        height: 12,
+                        child: CustomPaint(painter: const GitHubLogoPainter()),
+                      ),
+                      label: const Text('Code', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.white)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF378ADD),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
+                  const SizedBox(width: 8), // Gap between buttons
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: () => _launchURL(p['demo'] as String),
+                      icon: SizedBox(
+                        width: 12,
+                        height: 12,
+                        child: CustomPaint(painter: const YouTubeLogoPainterWhite()),
+                      ),
+                      label: const Text('Demo', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.white)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF0A1628),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        side: const BorderSide(color: Color(0xFF378ADD), width: 1.2),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
+        ),
+      ),
+    );
+  },
+)
         ],
       ),
     );
@@ -993,9 +1098,9 @@ class ContactSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _InteractiveIconButton(icon: null, painter: const XLogoPainter(), tooltip: 'Follow on X', onPressed: () => _launchURL('https://x.com/fortune_techdev')),
+              _InteractiveIconButton(icon: null, painter: const XLogoPainter(), tooltip: 'Follow on X', onPressed: () => _launchURL('https://x.com/h_white96312?s=21')),
               const SizedBox(width: 16),
-              _InteractiveIconButton(icon: null, painter: const GitHubLogoPainter(), tooltip: 'Review Engineering Engine', onPressed: () => _launchURL('https://github.com/thefortune-tech')),
+              _InteractiveIconButton(icon: null, painter: const GitHubLogoPainterBlue(), tooltip: 'Review Engineering Engine', onPressed: () => _launchURL('https://github.com/thefortune-tech')),
               const SizedBox(width: 16),
               _InteractiveIconButton(icon: null, painter: const YouTubeLogoPainter(), tooltip: 'Subscribe on YouTube', onPressed: () => _launchURL('https://youtube.com/@Fortune_Dev')),
             ],
@@ -1012,7 +1117,7 @@ class ContactSection extends StatelessWidget {
               ),
               HoverCard(
                 onTap: () => _launchURL('https://github.com/thefortune-tech'),
-                child: _contactCard('GitHub Platform', 'github.com/thefortune-tech', null, painter: const GitHubLogoPainter()),
+                child: _contactCard('GitHub Platform', 'github.com/thefortune-tech', null, painter: const GitHubLogoPainterBlue()),
               ),
               HoverCard(
                 onTap: () => _launchURL('https://youtube.com/@Fortune_Dev'),
